@@ -20,6 +20,8 @@ public class User extends AbstractEntity {
 
     private String authority;
 
+    private String mail;
+
     public User() {
     }
 
@@ -59,6 +61,14 @@ public class User extends AbstractEntity {
 
     public void setAuthority(String authority) {
         this.authority = authority;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     @Override
