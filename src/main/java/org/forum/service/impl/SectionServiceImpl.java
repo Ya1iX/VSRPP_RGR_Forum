@@ -4,9 +4,11 @@ import org.forum.entity.Section;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.forum.repository.SectionRepository;
 import org.forum.service.SectionService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class SectionServiceImpl implements SectionService {
     @Autowired
     private SectionRepository repository;

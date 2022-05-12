@@ -41,7 +41,7 @@ public class Section extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "[ID: " + this.getId() +
+        return "[ID: " + id +
                 ", name: " + name +
                 ", topics: " + topics.size() +"]";
     }

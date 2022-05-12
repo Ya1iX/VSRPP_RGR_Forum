@@ -4,9 +4,11 @@ import org.forum.entity.Message;
 import org.forum.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.forum.service.MessageService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MessageServiceImpl implements MessageService {
     @Autowired
     private MessageRepository repository;

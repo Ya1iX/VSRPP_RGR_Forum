@@ -4,9 +4,11 @@ import org.forum.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.forum.repository.UserRepository;
 import org.forum.service.UserService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository repository;

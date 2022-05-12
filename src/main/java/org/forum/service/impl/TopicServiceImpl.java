@@ -4,9 +4,11 @@ import org.forum.entity.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.forum.repository.TopicRepository;
 import org.forum.service.TopicService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TopicServiceImpl implements TopicService {
     @Autowired
     private TopicRepository repository;

@@ -1,5 +1,6 @@
 package org.forum.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class Topic extends AbstractEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "section_id", nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Section section;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "topic")
@@ -66,7 +68,7 @@ public class Topic extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "[ID: " + this.getId() +
+        return "[ID: " + id +
                 ", name: " + name +
                 ", rating: " + rating +
                 ", section: " + section +

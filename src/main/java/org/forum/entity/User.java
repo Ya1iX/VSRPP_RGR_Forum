@@ -1,5 +1,6 @@
 package org.forum.entity;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -77,7 +78,7 @@ public class User extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "[ID: " + this.getId() +
+        return "[ID: " + id +
                 ", username: " + username +
                 ", messages: " + messages.size() + "]";
     }
