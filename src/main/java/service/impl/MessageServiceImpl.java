@@ -13,26 +13,31 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public Message read(Long id) {
-        return null;
+        return repository.findById(id).get();
     }
 
     @Override
     public List<Message> read() {
-        return null;
+        return repository.findAll();
     }
 
     @Override
     public void save(Message entity) {
-
+        repository.save(entity);
     }
 
     @Override
     public void delete(Long id) {
-
+        repository.deleteById(id);
     }
 
     @Override
     public void edit(Message entity) {
-
+        Message message = repository.findById(entity.getId()).orElseThrow(IllegalArgumentException::new);
+        message.setDate(entity.getDate());
+        message.setText(entity.getText());
+        message.setTopic(entity.getTopic());
+        message.setUser(entity.getUser());
+        repository.save(message);
     }
 }
