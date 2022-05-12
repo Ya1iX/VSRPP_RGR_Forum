@@ -14,7 +14,7 @@ public class SectionController extends AbstractController<Section> {
     private SectionService service;
 
     @Override
-    public Service<Section> getService() {
+    public SectionService getService() {
         return service;
     }
 }

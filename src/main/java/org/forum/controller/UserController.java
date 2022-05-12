@@ -4,7 +4,6 @@ import org.forum.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.forum.service.Service;
 import org.forum.service.UserService;
 
 @RestController
@@ -14,7 +13,7 @@ public class UserController extends AbstractController<User> {
     private UserService service;
 
     @Override
-    public Service<User> getService() {
+    public UserService getService() {
         return service;
     }
 }

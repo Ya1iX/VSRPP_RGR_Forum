@@ -14,7 +14,7 @@ public class MessageController extends AbstractController<Message> {
     private MessageService service;
 
     @Override
-    public Service<Message> getService() {
+    public MessageService getService() {
         return service;
     }
 }

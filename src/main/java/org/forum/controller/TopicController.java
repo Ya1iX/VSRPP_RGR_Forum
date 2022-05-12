@@ -14,7 +14,7 @@ public class TopicController extends AbstractController<Topic> {
     private TopicService service;
 
     @Override
-    public Service<Topic> getService() {
+    public TopicService getService() {
         return service;
     }
 }
