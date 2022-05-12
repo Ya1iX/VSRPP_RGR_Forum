@@ -25,10 +25,12 @@ public class User extends AbstractEntity {
     public User() {
     }
 
-    public User(String username, String password, Set<Message> messages) {
+    public User(String username, String password, Set<Message> messages, String authority, String mail) {
         this.username = username;
         this.password = password;
         this.messages = messages;
+        this.authority = authority;
+        this.mail = mail;
     }
 
     public String getUsername() {
