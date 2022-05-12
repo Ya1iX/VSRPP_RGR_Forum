@@ -18,8 +18,10 @@ public class User extends AbstractEntity {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private Set<Message> messages;
 
+    @Column(name = "authority")
     private String authority;
 
+    @Column(name = "mail")
     private String mail;
 
     public User() {
