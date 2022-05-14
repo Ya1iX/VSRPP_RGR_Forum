@@ -1,5 +1,6 @@
 package org.forum.entity;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -37,6 +38,11 @@ public class Section extends AbstractEntity {
 
     public void setTopics(Set<Topic> topics) {
         this.topics = topics;
+    }
+
+    @JsonGetter("topics")
+    public int getTopicsSize() {
+        return topics.size();
     }
 
     @Override

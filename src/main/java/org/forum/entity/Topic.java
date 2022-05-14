@@ -1,5 +1,6 @@
 package org.forum.entity;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 
@@ -64,6 +65,11 @@ public class Topic extends AbstractEntity {
 
     public void setMessages(Set<Message> messages) {
         this.messages = messages;
+    }
+
+    @JsonGetter("messages")
+    public int getMessagesSize() {
+        return messages.size();
     }
 
     @Override

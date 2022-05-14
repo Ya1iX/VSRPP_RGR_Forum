@@ -1,5 +1,6 @@
 package org.forum.entity;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.sun.istack.NotNull;
 
@@ -74,6 +75,11 @@ public class User extends AbstractEntity {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    @JsonGetter("messages")
+    public int getMessagesSize() {
+        return messages.size();
     }
 
     @Override
