@@ -1,5 +1,6 @@
 package org.forum.service.impl;
 
+import org.forum.entity.Section;
 import org.forum.entity.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.forum.repository.TopicRepository;
@@ -12,6 +13,21 @@ import java.util.List;
 public class TopicServiceImpl implements TopicService {
     @Autowired
     private TopicRepository repository;
+
+    @Override
+    public List<Topic> readByName(String name) {
+        return repository.findByNameContaining(name);
+    }
+
+    @Override
+    public List<Topic> readByRating(int begin, int end) {
+        return repository.findByRatingBetween(begin, end);
+    }
+
+    @Override
+    public List<Topic> readBySection(Section section) {
+        return repository.findBySection(section);
+    }
 
     @Override
     public Topic read(Long id) {

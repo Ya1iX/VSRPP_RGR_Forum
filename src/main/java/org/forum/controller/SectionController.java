@@ -18,15 +18,15 @@ public class SectionController extends AbstractController<Section> {
     @Autowired
     private SectionService service;
 
+    @Override
+    public SectionService getService() {
+        return service;
+    }
+
     @GetMapping("/name/{name}")
     public ResponseEntity<List<Section>> getByName(@PathVariable String name) {
         List<Section> sections = service.readByName(name);
         if (sections.isEmpty()) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(sections, headers, HttpStatus.OK);
-    }
-
-    @Override
-    public SectionService getService() {
-        return service;
     }
 }
