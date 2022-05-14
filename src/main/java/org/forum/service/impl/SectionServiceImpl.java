@@ -14,6 +14,11 @@ public class SectionServiceImpl implements SectionService {
     private SectionRepository repository;
 
     @Override
+    public List<Section> readByName(String name) {
+        return repository.findByNameContaining(name);
+    }
+
+    @Override
     public Section read(Long id) {
         return repository.findById(id).get();
     }
