@@ -1,6 +1,8 @@
 package org.forum.service.impl;
 
 import org.forum.entity.Message;
+import org.forum.entity.Topic;
+import org.forum.entity.User;
 import org.forum.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.forum.service.MessageService;
@@ -12,6 +14,21 @@ import java.util.List;
 public class MessageServiceImpl implements MessageService {
     @Autowired
     private MessageRepository repository;
+
+    @Override
+    public List<Message> readByText(String text) {
+        return repository.findByTextContaining(text);
+    }
+
+    @Override
+    public List<Message> readByUser(User user) {
+        return repository.findByUser(user);
+    }
+
+    @Override
+    public List<Message> readByTopic(Topic topic) {
+        return repository.findByTopic(topic);
+    }
 
     @Override
     public Message read(Long id) {
