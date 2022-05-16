@@ -1,5 +1,6 @@
 package org.forum.controller;
 
+import org.forum.entity.Section;
 import org.forum.entity.Topic;
 import org.forum.service.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +42,9 @@ public class TopicController extends AbstractController<Topic> {
         return new ResponseEntity<>(topics, headers, HttpStatus.OK);
     }
 
-    @GetMapping("/section/{sectionId}")
-    public ResponseEntity<List<Topic>> getBySection(@PathVariable Long sectionId) {
-        List<Topic> topics = service.readBySection(sectionService.read(sectionId));
+    @GetMapping("/section/{section}")
+    public ResponseEntity<List<Topic>> getBySection(@PathVariable Section section) {
+        List<Topic> topics = service.readBySection(section);
         if (topics.isEmpty()) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(topics, headers, HttpStatus.OK);
     }
