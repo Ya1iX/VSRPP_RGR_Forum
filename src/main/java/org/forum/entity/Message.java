@@ -1,5 +1,6 @@
 package org.forum.entity;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 
@@ -19,12 +20,12 @@ public class Message extends AbstractEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "topic_id", nullable = false)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty("topicId")
     private Topic topic;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id", nullable = false)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty("userId")
     private User user;
 
     public Message() {
@@ -67,6 +68,16 @@ public class Message extends AbstractEntity {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @JsonGetter("topicId")
+    public Long getTopicId() {
+        return topic.getId();
+    }
+
+    @JsonGetter("userId")
+    public Long getUserId() {
+        return user.getId();
     }
 
     @Override

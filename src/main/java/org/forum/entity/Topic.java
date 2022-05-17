@@ -19,7 +19,7 @@ public class Topic extends AbstractEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "section_id", nullable = false)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty("sectionId")
     private Section section;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "topic")
@@ -65,6 +65,11 @@ public class Topic extends AbstractEntity {
 
     public void setMessages(Set<Message> messages) {
         this.messages = messages;
+    }
+
+    @JsonGetter("sectionId")
+    public Long getSectionId() {
+        return section.getId();
     }
 
     @JsonGetter("messages")
